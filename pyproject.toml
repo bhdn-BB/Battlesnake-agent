@@ -1,0 +1,15 @@
+[project]
+name = "battlesnake-fastapi"
+version = "1.0.0"
+description = "A compact FastAPI Battlesnake with a replaceable policy."
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "fastapi==0.143.0",
+    "uvicorn==0.54.0",
+]
+
+[dependency-groups]
+dev = ["httpx==0.28.1"]
+
+[tool.uv]
+package = false
