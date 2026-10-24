@@ -1,47 +1,54 @@
 # Battlesnake
 
-## Installation and Usage
+## Requirements
 
-### 1. Install uv and necessary tools
+- Git
+- Python 3.12
+- Go 1.24.2, available on `PATH`
 
-Install `uv` on Linux/macOS:
-
-```sh
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
-
-For container deployment, install [Docker Engine](https://docs.docker.com/engine/install/) on Linux or [Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install/) on Windows. Docker is optional for local development.
-
-### 2. Create and activate the virtual environment
-
-From the repository root, on Linux/macOS:
+## Clone the repository
 
 ```sh
-uv sync
-source .venv/bin/activate
+git clone https://github.com/bhdn-BB/Deep-RL-KPI.git
+cd Deep-RL-KPI
 ```
 
-`uv sync` installs the locked dependencies into `.venv`. Activation is optional when using `uv run`. [uv project guide](https://docs.astral.sh/uv/guides/projects/)
-
-### 3. Run your Battlesnake
+## Install dependencies
 
 ```sh
-uv run python main.py
+python -m pip install uv==0.11.8
+uv python install 3.12
+uv sync --locked --project training --python 3.12
 ```
 
-Open [localhost:8000](http://localhost:8000) for metadata and [localhost:8000/docs](http://localhost:8000/docs) for the interactive API reference.
+`uv` creates the virtual environment and installs the pinned dependencies.
+Manual activation is not required for the commands below.
 
-See [deployment and submission instructions](docs/README.md#deploy-and-submit-the-url), the [competition overview](OVERVIEW.md), and [five RL pipelines](docs/RL_PIPELINES.md).
+## Build the game engine
 
-## Play a Game Locally
+Windows PowerShell:
 
-Install the [Battlesnake CLI](https://github.com/BattlesnakeOfficial/rules/tree/main/cli)
-* You can [download compiled binaries here](https://github.com/BattlesnakeOfficial/rules/releases)
-* or [install as a go package](https://github.com/BattlesnakeOfficial/rules/tree/main/cli#installation) (requires Go 1.18 or higher)
+```powershell
+go -C env/engine build -mod=readonly -o adapter.exe .
+```
 
-Command to run a local game
+Linux/macOS:
 
 ```sh
-battlesnake play -W 11 -H 11 --name 'Python Starter Project' --url http://127.0.0.1:8000 -g solo --browser
+go -C env/engine build -mod=readonly -o adapter .
 ```
 
+## Start the web app
+
+Run from the repository root:
+
+```sh
+uv run --locked --project training python -m webapp.server
+```
+
+Open **http://127.0.0.1:8080** in your browser. Use arrow keys or WASD to play.
+Press `Ctrl+C` in the terminal to stop the app.
+
+Trained weights are not included in the repository. Without weights, select the
+scripted Teacher opponent. To play against a trained model, place its `.ts` file
+and matching `.json` manifest under `runs/duel_v3/`, then refresh the model list.

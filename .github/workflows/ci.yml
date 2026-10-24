@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check-and-test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      CUDA_VISIBLE_DEVICES: ""
+      UV_LINK_MODE: copy
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          version: "0.11.8"
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version: "1.24.2"
+          cache-dependency-path: env/engine/go.sum
+      - name: Check Python style
+        run: uvx ruff==0.17.0 check .
+      - name: Verify runtime lock
+        run: uv sync --locked --python 3.13
+      - name: Install training and test environment
+        run: uv sync --locked --project training --python 3.12
+      - name: Build simulator
+        working-directory: env/engine
+        run: go build -mod=readonly -o adapter .
+      - name: Run CPU tests
+        run: uv run --locked --project training python -m pytest tests -q
+      - name: Check whitespace
+        run: git diff --check

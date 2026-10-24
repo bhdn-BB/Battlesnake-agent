@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Duel · Battlesnake</title>
+  <link rel="stylesheet" href="/static/style.css?v=20261022-watch">
+  <script src="/static/app.js?v=20261022-watch" defer></script>
+</head>
+<body>
+  <header><a class="brand" href="/" aria-label="Battlesnake"><span class="brand-icon">⌁</span> BATTLESNAKE <span class="brand-sub">/ LOCAL ARENA</span></a><span class="local"><i></i> Running on your computer</span></header>
+  <main>
+    <section class="heading"><div><p id="duel-mode" class="eyebrow">HUMAN × MODEL</p><h1>Your next move.</h1><p class="intro">Play against a model or watch PPO challenge the Teacher.</p></div><span class="mode">01 <span>vs</span> 01</span></section>
+    <div class="layout">
+      <section class="arena" aria-label="Game board">
+        <div class="arena-top"><div><span class="live-dot"></span><span id="phase">READY TO DUEL</span></div><span>TURN <b id="turn">000</b></span></div>
+        <div class="board-wrap"><canvas id="board" width="660" height="660" tabindex="0" aria-label="11 by 11 board. Use arrow keys or WASD."></canvas><div id="overlay" class="overlay"><span class="overlay-icon">↗</span><h2 id="overlay-title">Meet on the board</h2><p id="overlay-text">Choose a checkpoint and start a duel.</p><button id="overlay-start">Start duel <span>↗</span></button></div></div>
+        <div class="arena-bottom"><span><i class="legend human"></i> <span id="player-legend">YOU</span></span><span><i class="legend model"></i> <span id="model-legend">MODEL</span></span><span class="board-label">11 × 11 · STANDARD</span></div>
+      </section>
+      <aside>
+        <section class="panel setup"><div class="panel-title"><h2>Your opponent</h2><button id="refresh" class="text-button" title="Refresh the checkpoint list">Refresh ↻</button></div><label for="checkpoint">Model checkpoint</label><select id="checkpoint"><option value="teacher">Teacher · scripted opponent</option></select><p id="model-meta" class="small">Loading local models…</p>
+          <div class="settings-row"><div><label for="seed">Board seed <span class="optional">optional</span></label><input id="seed" type="number" min="1" max="2147483647" placeholder="Random"></div><div><label id="slot-label" for="slot">Your position</label><select id="slot" aria-describedby="position-help"><option value="0">Position 1</option><option value="1">Position 2</option></select></div></div>
+          <p id="position-help" class="small">Changing position restarts the same board with the snakes swapped. Both snakes move simultaneously.</p>
+          <button id="start" class="primary">Start duel <span>↗</span></button>
+          <button id="watch" class="secondary">Watch PPO vs Teacher <span>▶</span></button>
+          <div id="watch-controls" class="watch-controls" hidden><button id="pause" class="secondary">Pause</button><div><label for="watch-speed">Playback speed</label><select id="watch-speed"><option value="1000">Slow · 1 turn/s</option><option value="400" selected>Normal · 2.5 turns/s</option><option value="100">Fast · 10 turns/s</option></select></div></div>
+          <p id="error" role="alert" hidden></p>
+        </section>
+        <section class="panel players"><div class="player-line"><span><i class="legend human"></i> <span id="player-name">You</span></span><span id="human-length">—</span></div><div class="health"><div id="human-health"></div></div><div class="player-line"><span><i class="legend model"></i> <span id="model-name">Model</span></span><span id="model-length">—</span></div><div class="health orange"><div id="model-health"></div></div><p id="last-move" class="small">Both moves are resolved simultaneously.</p><p id="model-latency" class="small" title="Encoding, neural inference and action masking; excludes the game engine and network.">Model decision time: —</p></section>
+        <section class="panel controls"><div><p class="eyebrow">CONTROLS</p><h2 id="controls-title">One keypress, one move</h2><p id="controls-help" class="small">Arrow keys or WASD.<br>Food increases length and restores health. Avoid walls and snake bodies.</p></div><div class="dpad" aria-label="Move direction"><button data-move="up" aria-label="Up">↑</button><button data-move="left" aria-label="Left">←</button><button data-move="down" aria-label="Down">↓</button><button data-move="right" aria-label="Right">→</button></div></section>
+        <section class="training"><div class="panel-title"><h2><i class="training-dot"></i> 1v1 training</h2><span id="train-percent">—</span></div><div class="progress"><div id="train-progress"></div></div><p id="training-status" class="small">Waiting for training data.</p><p id="training-detail" class="small"></p></section>
+      </aside>
+    </div>
+    <footer><span>Two decisions. One board.</span><span>Official Battlesnake rules · simultaneous moves</span></footer>
+  </main>
+</body>
+</html>

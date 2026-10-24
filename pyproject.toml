@@ -1,12 +1,15 @@
 [project]
 name = "battlesnake-fastapi"
 version = "1.0.0"
-description = "A compact FastAPI Battlesnake with a replaceable policy."
+description = "Battlesnake webhook runtime for a BC, PPO and self-play agent."
 requires-python = ">=3.13,<3.14"
 dependencies = [
     "fastapi==0.143.0",
     "uvicorn==0.54.0",
 ]
+
+[project.optional-dependencies]
+inference = ["numpy==2.2.6", "torch==2.8.0"]
 
 [dependency-groups]
 dev = ["httpx==0.28.1"]

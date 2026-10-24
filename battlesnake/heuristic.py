@@ -1,4 +1,3 @@
-
 DIRECTIONS = {"up": (0, 1), "down": (0, -1), "left": (-1, 0), "right": (1, 0)}
 
 
@@ -7,7 +6,6 @@ def point(cell: dict) -> tuple[int, int]:
 
 
 def choose_move(state: dict) -> str:
-
     board = state["board"]
     you = state["you"]
 
@@ -37,7 +35,9 @@ def choose_move(state: dict) -> str:
         if target in occupied:
             continue
 
-        distance = min((abs(target[0] - fx) + abs(target[1] - fy) for fx, fy in food), default=0)
+        distance = min(
+            (abs(target[0] - fx) + abs(target[1] - fy) for fx, fy in food), default=0
+        )
         score = (target not in threats, target not in hazards, -distance)
         candidates.append((score, direction))
     # A valid response is still required when every move looks fatal.
