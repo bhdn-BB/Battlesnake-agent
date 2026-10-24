@@ -1,5 +1,7 @@
 # Battlesnake
 
+Read [report.pdf](report.pdf) first.
+
 ## Requirements
 
 - Git
