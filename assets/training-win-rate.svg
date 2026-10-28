@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="480" viewBox="0 0 980 480" role="img" aria-labelledby="title desc">
+<title id="title">Validation win rate during PPO training</title>
+<desc id="desc">Win rate rises from 37.25 percent at zero transitions to 88.25 percent at ten million transitions.</desc>
+<rect width="980" height="480" fill="white"/>
+<text x="80" y="32" font-family="sans-serif" font-size="21" font-weight="bold" fill="#172b32">Validation win rate during PPO training</text>
+<line x1="80" y1="410.0" x2="930" y2="410.0" stroke="#e1e7e8"/>
+<text x="70" y="415.0" text-anchor="end" font-family="sans-serif" font-size="14" fill="#44565c">0%</text>
+<line x1="80" y1="340.0" x2="930" y2="340.0" stroke="#e1e7e8"/>
+<text x="70" y="345.0" text-anchor="end" font-family="sans-serif" font-size="14" fill="#44565c">20%</text>
+<line x1="80" y1="270.0" x2="930" y2="270.0" stroke="#e1e7e8"/>
+<text x="70" y="275.0" text-anchor="end" font-family="sans-serif" font-size="14" fill="#44565c">40%</text>
+<line x1="80" y1="200.0" x2="930" y2="200.0" stroke="#e1e7e8"/>
+<text x="70" y="205.0" text-anchor="end" font-family="sans-serif" font-size="14" fill="#44565c">60%</text>
+<line x1="80" y1="130.0" x2="930" y2="130.0" stroke="#e1e7e8"/>
+<text x="70" y="135.0" text-anchor="end" font-family="sans-serif" font-size="14" fill="#44565c">80%</text>
+<line x1="80" y1="60.0" x2="930" y2="60.0" stroke="#e1e7e8"/>
+<text x="70" y="65.0" text-anchor="end" font-family="sans-serif" font-size="14" fill="#44565c">100%</text>
+<text x="80.0" y="435" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#44565c">0</text>
+<text x="250.0" y="435" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#44565c">2</text>
+<text x="420.0" y="435" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#44565c">4</text>
+<text x="590.0" y="435" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#44565c">6</text>
+<text x="760.0" y="435" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#44565c">8</text>
+<text x="930.0" y="435" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#44565c">10</text>
+<polyline points="80.0,279.6 88.5,305.0 97.0,290.1 105.5,277.9 114.0,287.5 122.5,279.6 131.0,238.5 139.5,237.6 148.0,239.4 156.5,226.2 165.0,215.7 173.5,198.2 182.0,207.9 190.5,205.2 199.0,192.1 207.5,215.7 216.0,225.4 224.5,198.2 233.0,186.0 241.5,195.6 250.0,204.4 258.5,177.2 267.0,155.4 275.5,166.8 284.0,164.1 292.5,160.6 301.0,161.5 309.5,151.0 318.0,147.5 326.5,139.6 335.0,141.4 343.5,131.8 352.0,130.0 360.5,136.1 369.0,133.5 377.5,125.6 386.0,133.5 394.5,130.9 403.0,134.4 411.5,131.8 420.0,141.4 428.5,130.9 437.0,124.8 445.5,111.6 454.0,125.6 462.5,117.8 471.0,102.0 479.5,118.6 488.0,121.3 496.5,106.4 505.0,106.4 513.5,110.8 522.0,105.5 530.5,123.9 539.0,95.0 547.5,112.5 556.0,104.6 564.5,98.5 573.0,105.5 581.5,95.0 590.0,95.0 598.5,90.6 607.0,97.6 615.5,94.1 624.0,99.4 632.5,95.0 641.0,88.9 649.5,90.6 658.0,102.0 666.5,112.5 675.0,86.2 683.5,106.4 692.0,101.1 700.5,102.9 709.0,98.5 717.5,107.2 726.0,100.2 734.5,94.1 743.0,90.6 751.5,96.8 760.0,85.4 768.5,88.0 777.0,104.6 785.5,88.9 794.0,95.0 802.5,93.2 811.0,88.9 819.5,85.4 828.0,85.4 836.5,92.4 845.0,92.4 853.5,95.0 862.0,98.5 870.5,94.1 879.0,102.9 887.5,95.9 896.0,102.9 904.5,92.4 913.0,95.9 921.5,91.5 930.0,101.1" fill="none" stroke="#16866c" stroke-width="3" stroke-linejoin="round"/>
+<text x="505" y="465" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#172b32">Learner transitions (millions)</text>
+</svg>
